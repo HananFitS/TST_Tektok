@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Tektok</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="{{ url_for('static', filename='images/tektok_logo.png') }}" alt="Tektok Logo">
+        <h1>Tektok</h1>
+    </header>
+
+    <!-- Navigasi -->
+    <nav>
+        <a href="{{ url_for('logout') }}">Logout</a>
+        <a href="/mountains">Daftar Rekomendasi Gunung</a>
+        <a href="/preferences">Berikan Feedback</a>
+    </nav>
+
+    <!-- Filter Gunung -->
+    <h2>Filter Gunung</h2>
+    <form method="POST" action="/dashboard">
+        <!-- Filter Tingkat Kesulitan -->
+        <label for="difficulty">Pilih Tingkat Kesulitan:</label>
+        <select name="difficulty" id="difficulty">
+            <option value="all" {% if selected_difficulty == 'all' %}selected{% endif %}>Semua</option>
+            <option value="Mudah" {% if selected_difficulty == 'Mudah' %}selected{% endif %}>Mudah</option>
+            <option value="Sedang" {% if selected_difficulty == 'Sedang' %}selected{% endif %}>Sedang</option>
+            <option value="Sulit" {% if selected_difficulty == 'Sulit' %}selected{% endif %}>Sulit</option>
+        </select>
+
+        <!-- Filter Nama Gunung -->
+        <label for="name">Cari Nama Gunung:</label>
+        <input type="text" name="name" id="name" value="{{ request.form.get('name', '') }}">
+
+        <button type="submit">Tampilkan</button>
+    </form>
+
+    <!-- Daftar Gunung -->
+    <h2>Daftar Rekomendasi Gunung</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nama Gunung</th>
+                <th>Tingkat Kesulitan</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if mountains %}
+                {% for mountain in mountains %}
+                <tr>
+                    <td>{{ mountain.name }}</td>
+                    <td>{{ mountain.difficulty }}</td>
+                    <td>
+                        {% if mountain.is_locked %}
+                        <span style="color: red;">Terkunci</span>
+                        {% else %}
+                        <span style="color: green;">Dapat Diupdate</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="3">Tidak ada gunung yang sesuai dengan filter ini.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</body>
+</html>

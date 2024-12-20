@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preferences - Tektok</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/preferences.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="{{ url_for('static', filename='images/tektok_logo.png') }}" alt="Tektok Logo">
+        <h1>Tektok</h1>
+    </header>
+
+    <!-- Form Preferences -->
+    <div class="container">
+        <a href="/dashboard" class="btn-back">Kembali ke Dashboard</a>
+        
+        <h2>Berikan Feedback Gunung</h2>
+        <form method="POST" action="/preferences">
+            {% for mountain in mountains %}
+            <div>
+                <label for="feedback_{{ mountain.id }}">
+                    Apakah tingkat kesulitan {{ mountain.name }} sesuai?
+                </label>
+                <select name="feedback_{{ mountain.id }}" id="feedback_{{ mountain.id }}">
+                    <option value="sesuai">Sesuai</option>
+                    <option value="tidak sesuai">Tidak Sesuai</option>
+                </select>
+            </div>
+            {% endfor %}
+            <button type="submit">Kirim Feedback</button>
+        </form>
+    </div>
+</body>
+</html>

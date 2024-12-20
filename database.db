@@ -1,0 +1,21 @@
+import sqlite3
+
+# Membuka koneksi ke database SQLite
+conn = sqlite3.connect('database.db')
+
+# Membuat cursor untuk mengeksekusi query
+cursor = conn.cursor()
+
+# Menampilkan semua tabel dalam database
+cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+
+# Mengambil hasilnya
+tables = cursor.fetchall()
+
+# Menampilkan nama-nama tabel
+print("Tables in the database:")
+for table in tables:
+    print(table[0])
+
+# Menutup koneksi
+conn.close()

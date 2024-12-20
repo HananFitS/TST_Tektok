@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Gunung - Tektok</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mountains.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="{{ url_for('static', filename='images/tektok_logo.png') }}" alt="Tektok Logo">
+        <h1>Tektok</h1>
+    </header>
+
+    <!-- Title -->
+    <h2>Daftar Gunung</h2>
+
+    <!-- Tabel Gunung -->
+    <table>
+        <thead>
+            <tr>
+                <th>Nama Gunung</th>
+                <th>Tingkat Kesulitan</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mountain in mountains %}
+            <tr>
+                <td>{{ mountain.name }}</td>
+                <td>{{ mountain.difficulty }}</td>
+                <td>
+                    {% if mountain.is_locked %}
+                    <span style="color: red;">Terkunci</span>
+                    {% else %}
+                    <span style="color: green;">Dapat Diupdate</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Back Button -->
+    <div style="text-align: center;">
+        <a href="/dashboard" class="btn-back">Kembali ke Dashboard</a>
+    </div>
+</body>
+</html>

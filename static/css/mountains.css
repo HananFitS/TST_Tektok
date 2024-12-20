@@ -1,0 +1,89 @@
+/* Header Styling (Sama seperti halaman lain) */
+header {
+    background-color: #2d2d2d;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+    text-shadow: none;
+}
+
+/* Body Styling */
+body {
+    margin: 0;
+    padding: 0;
+    padding-top: 70px; /* Beri ruang untuk header */
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+}
+
+/* Table Styling */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #007BFF;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Back Button Styling */
+.btn-back {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    text-align: center;
+}
+
+.btn-back:hover {
+    background-color: #0056b3;
+}
+
+/* Page Title Styling */
+h2 {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+    font-size: 24px;
+}

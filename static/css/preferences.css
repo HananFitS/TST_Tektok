@@ -1,0 +1,111 @@
+/* preferences.css */
+
+/* Header Styling (Sama dengan dashboard.css) */
+/* Header Styling (Pastikan konsisten dengan dashboard.css) */
+header {
+    background-color: #2d2d2d;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    position: fixed; /* Posisi header tetap di atas */
+    top: 0;
+    left: 0;
+    width: 100%; /* Header melebar ke seluruh layar */
+    z-index: 1000; /* Pastikan header di atas elemen lain */
+}
+
+header img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: white; /* Pastikan warna teks putih */
+    text-shadow: none; /* Hilangkan efek bayangan */
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* Form Styling */
+form {
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+form select {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Additional Styling */
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    padding-top: 70px; /* Sesuaikan dengan tinggi header */
+    background-color: #f4f4f9;
+    font-family: Arial, sans-serif;
+}
+
+.btn-back {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    text-align: center;
+}
+
+.btn-back:hover {
+    background-color: #0056b3;
+}
